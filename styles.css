@@ -1,0 +1,409 @@
+:root {
+  --ink: #101613;
+  --ink-soft: #34423b;
+  --paper: #f7fbf4;
+  --mist: #e4efdf;
+  --line: #202820;
+  --blue: #285dff;
+  --green: #6cff70;
+  --red: #ff473d;
+  --shadow: 10px 10px 0 var(--line);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--paper);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: "Avenir Next", "Gill Sans", Verdana, sans-serif;
+  background:
+    linear-gradient(90deg, rgba(16, 22, 19, 0.06) 1px, transparent 1px),
+    linear-gradient(rgba(16, 22, 19, 0.06) 1px, transparent 1px),
+    radial-gradient(circle at 12% 18%, rgba(108, 255, 112, 0.42), transparent 26rem),
+    radial-gradient(circle at 80% 10%, rgba(40, 93, 255, 0.28), transparent 28rem),
+    var(--paper);
+  background-size: 34px 34px, 34px 34px, auto, auto, auto;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  border: 2px solid var(--line);
+  border-radius: 6px;
+  padding: 0.9rem 1rem;
+  color: var(--paper);
+  background: var(--ink);
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
+}
+
+button:hover {
+  box-shadow: 5px 5px 0 var(--green);
+  transform: translate(-2px, -2px);
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.button-secondary {
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.shell {
+  width: min(1160px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 38px 0;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 24px;
+  align-items: stretch;
+  margin-bottom: 24px;
+}
+
+.hero__copy,
+.signal-panel,
+.planner,
+.output {
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  background: rgba(247, 251, 244, 0.9);
+}
+
+.hero__copy {
+  min-height: 260px;
+  padding: clamp(28px, 6vw, 64px);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__copy::after {
+  content: "";
+  position: absolute;
+  right: -42px;
+  bottom: -42px;
+  width: 190px;
+  aspect-ratio: 1;
+  border: 2px solid var(--line);
+  border-radius: 50%;
+  background:
+    linear-gradient(135deg, transparent 48%, var(--line) 48% 52%, transparent 52%),
+    var(--green);
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  color: var(--blue);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 1rem;
+  max-width: 760px;
+  font-family: Rockwell, "Courier New", serif;
+  font-size: clamp(3.1rem, 7vw, 6.8rem);
+  line-height: 0.95;
+}
+
+h2 {
+  margin-bottom: 0;
+  font-family: Rockwell, "Courier New", serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+h3 {
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+}
+
+.lede {
+  max-width: 650px;
+  margin-bottom: 0;
+  color: var(--ink-soft);
+  font-size: clamp(1.04rem, 2vw, 1.32rem);
+  line-height: 1.55;
+}
+
+.signal-panel {
+  display: flex;
+  min-height: 260px;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.55rem;
+  padding: 22px;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.signal-panel strong {
+  color: var(--green);
+  font-family: Rockwell, "Courier New", serif;
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.signal-panel__label {
+  align-self: flex-start;
+  border: 1px solid var(--green);
+  border-radius: 999px;
+  padding: 0.28rem 0.65rem;
+  color: var(--green);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: 380px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.planner,
+.output {
+  padding: 22px;
+}
+
+.planner {
+  position: sticky;
+  top: 20px;
+  display: grid;
+  gap: 18px;
+}
+
+.field {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.field label,
+legend {
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+fieldset {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  border: 2px solid var(--line);
+  border-radius: 6px;
+  padding: 0.8rem 0.9rem;
+  background: #ffffff;
+  color: var(--ink);
+}
+
+input[type="range"] {
+  accent-color: var(--blue);
+}
+
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+}
+
+.chips {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.chips label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 2px solid var(--line);
+  border-radius: 6px;
+  padding: 0.65rem;
+  background: #ffffff;
+  color: var(--ink);
+  font-size: 0.85rem;
+  text-transform: none;
+}
+
+.chips input {
+  accent-color: var(--green);
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 0.55fr;
+  gap: 10px;
+}
+
+.output {
+  min-height: 540px;
+}
+
+.output__head {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--line);
+  padding-bottom: 18px;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.metric {
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+  background: #ffffff;
+}
+
+.metric span {
+  display: block;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.metric strong {
+  display: block;
+  margin-top: 0.4rem;
+  font-family: Rockwell, "Courier New", serif;
+  font-size: 2rem;
+}
+
+.timeline {
+  display: grid;
+  gap: 12px;
+}
+
+.day-card {
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1fr);
+  gap: 16px;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  padding: 14px;
+  background: #ffffff;
+}
+
+.day-card__stamp {
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--line);
+  border-radius: 6px;
+  background: var(--mist);
+  font-family: Rockwell, "Courier New", serif;
+  font-size: 1.6rem;
+}
+
+.day-card:nth-child(3n) .day-card__stamp {
+  background: var(--green);
+}
+
+.day-card:nth-child(3n + 1) .day-card__stamp {
+  background: #dbe5ff;
+}
+
+.day-card p {
+  margin-bottom: 0.4rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.day-card ul,
+.kit ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+.kit {
+  margin-top: 18px;
+  border: 2px dashed var(--line);
+  border-radius: 8px;
+  padding: 18px;
+  background: rgba(108, 255, 112, 0.18);
+}
+
+@media (max-width: 860px) {
+  .hero,
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .planner {
+    position: static;
+  }
+
+  .signal-panel {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 620px) {
+  .shell {
+    width: min(100% - 20px, 1160px);
+    padding: 18px 0;
+  }
+
+  .hero__copy {
+    min-height: 0;
+    padding: 28px 20px 92px;
+  }
+
+  .chips,
+  .metrics,
+  .actions,
+  .day-card {
+    grid-template-columns: 1fr;
+  }
+
+  .output__head {
+    flex-direction: column;
+  }
+}
