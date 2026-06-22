@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nomad Lift Planner</title>
+    <meta
+      name="description"
+      content="A tiny offline web app that builds practical travel training plans."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero__copy">
+          <p class="eyebrow">travel strength planner</p>
+          <h1 id="page-title">Nomad Lift Planner</h1>
+          <p class="lede">
+            Build a realistic trip workout plan around luggage space, hotel equipment,
+            walking load, and recovery time.
+          </p>
+        </div>
+
+        <aside class="signal-panel" aria-label="Current default profile">
+          <span class="signal-panel__label">default profile</span>
+          <strong>70 kg</strong>
+          <span>strength training base</span>
+          <span>travel-friendly sessions</span>
+        </aside>
+      </section>
+
+      <section class="workspace" aria-label="Planner workspace">
+        <form class="planner" id="planner-form">
+          <div class="field field--wide">
+            <label for="destination">Destination</label>
+            <input
+              id="destination"
+              name="destination"
+              type="text"
+              value="Kyoto"
+              autocomplete="off"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="days">Trip days</label>
+            <input id="days" name="days" type="number" min="1" max="21" value="6" />
+          </div>
+
+          <div class="field">
+            <label for="goal">Main goal</label>
+            <select id="goal" name="goal">
+              <option value="maintain">Maintain strength</option>
+              <option value="cut">Stay lean</option>
+              <option value="recover">Recover well</option>
+              <option value="explore">Explore more</option>
+            </select>
+          </div>
+
+          <fieldset class="field field--wide">
+            <legend>Equipment access</legend>
+            <div class="chips">
+              <label>
+                <input type="checkbox" name="equipment" value="bodyweight" checked />
+                <span>Bodyweight</span>
+              </label>
+              <label>
+                <input type="checkbox" name="equipment" value="bands" checked />
+                <span>Bands</span>
+              </label>
+              <label>
+                <input type="checkbox" name="equipment" value="dumbbells" />
+                <span>Dumbbells</span>
+              </label>
+              <label>
+                <input type="checkbox" name="equipment" value="hotel_gym" />
+                <span>Hotel gym</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="field field--wide">
+            <label for="walking">Daily walking load</label>
+            <input id="walking" name="walking" type="range" min="1" max="5" value="4" />
+            <div class="range-labels" aria-hidden="true">
+              <span>light</span>
+              <span>heavy</span>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button type="submit">Generate plan</button>
+            <button class="button-secondary" type="button" id="reset-button">Reset</button>
+          </div>
+        </form>
+
+        <section class="output" aria-live="polite">
+          <div class="output__head">
+            <div>
+              <p class="eyebrow">generated route</p>
+              <h2 id="plan-title">Kyoto strength trip</h2>
+            </div>
+            <button class="button-secondary" type="button" id="copy-button">Copy summary</button>
+          </div>
+
+          <div class="metrics" id="metrics"></div>
+          <div class="timeline" id="timeline"></div>
+          <div class="kit" id="kit"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
